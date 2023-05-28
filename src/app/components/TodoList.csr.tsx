@@ -1,6 +1,6 @@
 "use client";
 
-import { TodoEntity } from "@/dtr/entities/TodoEntity";
+import { ITodoEntity } from "@/dtr/entities/TodoEntity";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import {
   createTodo,
@@ -15,6 +15,10 @@ export function TodoList() {
 
   const onCreateTodo = () => dispatch(createTodo());
   const onResetTodoList = () => dispatch(reset());
+  const onUpdateTodo = (id: ITodoEntity["id"]) => () =>
+    dispatch(updateTodo(id));
+  const onDeleteTodo = (id: ITodoEntity["id"]) => () =>
+    dispatch(deleteTodo(id));
 
   return (
     <div>
@@ -27,12 +31,8 @@ export function TodoList() {
             <div>isTypeTodo: {String(todo.isTypeTodo())}</div>
             <div>isTypeDoing: {String(todo.isTypeDoing())}</div>
             <div>isTypeDone: {String(todo.isTypeDone())}</div>
-            <button onClick={() => dispatch(updateTodo(todo.id))}>
-              update
-            </button>
-            <button onClick={() => dispatch(deleteTodo(todo.id))}>
-              delete
-            </button>
+            <button onClick={onUpdateTodo(todo.id)}>update</button>
+            <button onClick={onDeleteTodo(todo.id)}>delete</button>
           </li>
         ))}
       </ul>

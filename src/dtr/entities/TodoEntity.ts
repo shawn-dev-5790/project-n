@@ -28,7 +28,7 @@ export class TodoEntity {
     this.createdAt = data.createdAt;
     this.updatedAt = data.updatedAt;
     this.deletedAt = data.deletedAt;
-    data.id || this.create();
+    this.create();
   }
 
   isTypeTodo(): boolean {
