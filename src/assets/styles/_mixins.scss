@@ -1,0 +1,17 @@
+@use './variables';
+
+@mixin ellipsis($width: 100%, $display: inline-block) {
+  display: $display;
+  max-width: $width;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+}
+
+@mixin fontStyle($type, $weight, $color: var(--brand_black_1200)) {
+  font-size: map_get($type, size);
+  line-height: map_get($type, lineHeight);
+  font-weight: $weight;
+  color: $color;
+}

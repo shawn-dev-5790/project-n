@@ -17,10 +17,23 @@
     "next": "13.4.19",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "sharp": "^0.32.5",
     "typescript": "5.2.2"
   },
   "devDependencies": {
     "sass": "^1.66.1",
     "typescript-plugin-css-modules": "^5.0.1"
+  },
+  "prettier": {
+    "printWidth": 120,
+    "semi": false,
+    "tabWidth": 2,
+    "bracketSpacing": true,
+    "singleQuote": true,
+    "tabs": true,
+    "htmlWhitespaceSensitivity": "ignore",
+    "[javascript]": {
+      "editor.formatOnSave": false
+    }
   }
 }
