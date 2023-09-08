@@ -8,6 +8,7 @@ import lang from '@/assets/images/ico_lang.svg'
 import globe from '@/assets/images/ico_globe.svg'
 import theme from '@/assets/images/ico_theme.svg'
 import arrow_right from '@/assets/images/ico_arrow_right.svg'
+import target_face from '@/assets/images/ico_target_face.svg'
 
 export function AppLogoImg() {
   return <Image src={'https://dummyimage.com/240x80/ffd900/000000&text=H1LOGO'} alt="H1LOGO" width={120} height={40} />
@@ -28,6 +29,7 @@ export function AppIcon({ name = 'setting', size = [16, 16] }: { name: string; s
     { name: 'globe', src: globe },
     { name: 'theme', src: theme },
     { name: 'arrow_right', src: arrow_right },
+    { name: 'target_face', src: target_face },
   ]
   const [width, heigh] = size
   const target = icons.find((icon) => icon.name === name) || icons[0]

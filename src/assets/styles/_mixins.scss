@@ -9,7 +9,7 @@
   word-wrap: normal;
 }
 
-@mixin fontStyle($type, $weight, $color: var(--brand_black_1200)) {
+@mixin font($type, $weight, $color: var(--brand_black_1200)) {
   font-size: map_get($type, size);
   line-height: map_get($type, lineHeight);
   font-weight: $weight;

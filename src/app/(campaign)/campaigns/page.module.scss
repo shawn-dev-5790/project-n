@@ -1,0 +1,12 @@
+.wrap {
+  padding: 16px;
+}
+.grid {
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* 너비 동적 조절 */
+  grid-auto-rows: 100px;
+  > * {
+    background-color: gold;
+  }
+}

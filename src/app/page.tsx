@@ -1,8 +1,16 @@
+import { sleep } from '@/utils'
 import style from './page.module.scss'
-import Sites from './components/sites'
+import { getCampaigns } from './(api)/api/campaigns/route'
 
-export default function RootPage() {
-  const sites = Array.from({ length: 20 }, (_, i) => i++)
+const fetchPosts = async () => {
+  const response = await fetch('https://jsonplaceholder.typicode.com/posts')
+  return response.json()
+}
+
+export default async function RootPage() {
+  const campaigns = await getCampaigns()
+
+  // await sleep(3000)
 
   return (
     <div className={style.page}>
@@ -19,6 +27,7 @@ export default function RootPage() {
             perfect environment to turn your vision into reality. Join us on this journey as we unveil the future of web
             development with Next.js 13. Discover, create, and innovate with us at H1LOGO.
           </p>
+          <pre>{JSON.stringify(campaigns, null, 2)}</pre>
         </div>
         <div className={style.cont}>
           <section>content section 1</section>
