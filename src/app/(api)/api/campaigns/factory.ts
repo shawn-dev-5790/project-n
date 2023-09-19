@@ -23,7 +23,6 @@ export function createFakeGetCampaigns(length: number, qs: URLSearchParams): IRe
     const [k, v] = query.filter_by.split(':')
     return campaign[k as keyof IResCampaign['data']['campaign']] === v
   })
-  campaigns = campaigns.slice(query.current_page, query.per_page * query.current_page)
   campaigns.sort((a: any, b: any) => {
     const sort_by = query.sort_by
     const sort_order = query.sort_order
@@ -38,7 +37,7 @@ export function createFakeGetCampaigns(length: number, qs: URLSearchParams): IRe
   pagination.has_next_page = query.current_page < pagination.total_page
   pagination.has_prev_page = query.current_page > 2
 
-  res.data = { query, pagination, campaigns }
+  res.data = { query, pagination, campaigns: campaigns.slice(query.current_page, query.per_page * query.current_page) }
 
   return res
 }
